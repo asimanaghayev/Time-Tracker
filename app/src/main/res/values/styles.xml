@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
+        <item name="colorPrimary">@color/blueRibbon800</item>
+        <item name="colorPrimaryDark">@color/blueRibbon800</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:statusBarColor">@color/black</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="N">false</item>
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+    </style>
+
+    <style name="CardViewStyle" parent="CardView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:outlineProvider">background</item>
+        <item name="cardBackgroundColor">@color/white</item>
+        <item name="cardCornerRadius">@dimen/border_radius_card</item>
+        <item name="cardElevation">@dimen/elevation_normal</item>
+    </style>
+
+    <!-- TextView Styles-->
+    <style name="DefaultTextStyle" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:fontFamily">@font/gilroy_regular</item>
+    </style>
+
+    <style name="TitleTextStyle" parent="DefaultTextStyle">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/font_size_normal</item>
+        <item name="android:fontFamily">@font/gilroy_bold</item>
+    </style>
+
+    <style name="SecondaryTextStyle" parent="DefaultTextStyle">
+        <item name="android:textSize">@dimen/font_size_medium</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:fontFamily">@font/gilroy_semi_bold</item>
+    </style>
+
+    <style name="TertiaryTextStyle" parent="DefaultTextStyle">
+        <item name="android:textSize">@dimen/font_size_medium</item>
+        <item name="android:textColor">@color/text_faded</item>
+        <item name="android:fontFamily">@font/gilroy_regular</item>
+    </style>
+
+    <!-- Percent View -->
+
+    <style name="PercentViewTextStyle" parent="DefaultTextStyle">
+        <item name="android:layout_width">@dimen/percent_view_width</item>
+        <item name="android:layout_height">@dimen/percent_view_height</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:gravity">center</item>
+        <item name="android:lines">1</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/font_normal</item>
+    </style>
+
+    <!-- Button Styles -->
+    <style name="DefaultButton" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/button_height</item>
+        <item name="android:minHeight">@dimen/button_height</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:layout_marginStart">@dimen/padding_large</item>
+        <item name="android:layout_marginEnd">@dimen/padding_large</item>
+        <item name="android:layout_marginBottom">@dimen/padding_large</item>
+        <item name="android:layout_marginTop">@dimen/padding_large</item>
+        <item name="android:padding">@dimen/padding_normal</item>
+        <item name="android:shadowDx">3</item>
+        <item name="android:shadowDy">3</item>
+        <item name="android:shadowRadius">10</item>
+        <item name="android:shadowColor">@color/black_10</item>
+        <item name="android:textSize">@dimen/font_size_small</item>
+    </style>
+
+    <style name="PrimaryButton" parent="DefaultButton">
+        <item name="android:background">@drawable/bg_button_primary</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="SecondaryButton" parent="DefaultButton">
+        <item name="android:background">@drawable/bg_button_secondary</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <!--  Text Input Layout  -->
+
+    <style name="CustomEditTextStyle" parent="Widget.AppCompat.EditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/text_input_height</item>
+        <item name="android:background">@drawable/bg_edit_text</item>
+    </style>
+
+    <style name="CustomTextInputStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/text_input_height</item>
+        <item name="boxBackgroundColor">@color/box_bg_enabled</item>
+        <item name="boxStrokeWidth">@dimen/border_size_micro</item>
+        <item name="boxStrokeWidthFocused">@dimen/border_size_micro</item>
+        <item name="helperTextTextColor">@color/text_hint</item>
+        <item name="hintEnabled">true</item>
+        <item name="startIconTint">@android:color/black</item>
+        <item name="endIconTint">@android:color/black</item>
+    </style>
+
+    <style name="CustomTextInputTheme" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="colorPrimary">@color/border_focused</item>
+        <item name="colorOnSurface">@color/border_enabled</item>
+
+        <item name="colorError">@color/border_error</item>
+        <item name="errorTextColor">@color/text_error</item>
+        <item name="errorIconTint">@color/icon_error</item>
+
+        <item name="minHeight">@dimen/text_input_height</item>
+
+        <item name="boxCornerRadiusTopStart">@dimen/border_radius_huge</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/border_radius_huge</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/border_radius_huge</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/border_radius_huge</item>
+    </style>
+
+    <!--  Shimmer Style  -->
+    <style name="ShimmerStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="shimmer_duration">1500</item>
+    </style>
+
+    <style name="ShimmerItemStyle">
+        <item name="android:background">@color/shimmer</item>
+    </style>
+
+    <style name="ShimmerTextStyle" parent="ShimmerItemStyle">
+        <item name="android:layout_width">@dimen/shimmer_text_width_normal</item>
+        <item name="android:layout_height">@dimen/shimmer_text_height_normal</item>
+    </style>
+
+</resources>

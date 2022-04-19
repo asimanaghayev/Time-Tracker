@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--  Defaults  -->
+    <dimen name="text_input_height">48dp</dimen>
+    <dimen name="button_height">56dp</dimen>
+    <dimen name="list_item_height_default">60dp</dimen>
+
+    <dimen name="percent_view_width">80dp</dimen>
+    <dimen name="percent_view_height">33dp</dimen>
+
+    <!-- FONT SIZES -->
+    <dimen name="font_size_pico">10sp</dimen>
+    <dimen name="font_size_nano">12sp</dimen>
+    <dimen name="font_size_micro">13sp</dimen>
+    <dimen name="font_size_small">14sp</dimen>
+    <dimen name="font_size_medium">16sp</dimen>
+    <dimen name="font_size_normal">17sp</dimen>
+    <dimen name="font_size_large">22sp</dimen>
+    <dimen name="font_size_huge">28sp</dimen>
+    <dimen name="font_size_enormous">32sp</dimen>
+    <dimen name="font_size_default">@dimen/font_size_medium</dimen>
+
+    <!--  Icon  -->
+    <dimen name="icon_small">24dp</dimen>
+    <dimen name="icon_normal">32dp</dimen>
+    <dimen name="icon_medium">40dp</dimen>
+    <dimen name="icon_large">48dp</dimen>
+
+    <!--  Paddings  -->
+    <dimen name="padding_nano">1dp</dimen>
+    <dimen name="padding_micro">2dp</dimen>
+    <dimen name="padding_small">4dp</dimen>
+    <dimen name="padding_normal">8dp</dimen>
+    <dimen name="padding_medium">12dp</dimen>
+    <dimen name="padding_large">16dp</dimen>
+    <dimen name="padding_large_20">16dp</dimen>
+    <dimen name="padding_huge">24dp</dimen>
+    <dimen name="padding_enormous">32dp</dimen>
+
+    <!--  Fonts  -->
+    <dimen name="font_normal">13sp</dimen>
+    <dimen name="font_large">15sp</dimen>
+
+    <!-- FONT LINESPACING -->
+    <dimen name="font_weight_micro">300</dimen>
+    <dimen name="font_weight_small">400</dimen>
+    <dimen name="font_weight_medium">500</dimen>
+    <dimen name="font_weight_normal">600</dimen>
+    <dimen name="font_weight_large">700</dimen>
+
+    <!-- ELEVATION -->
+    <dimen name="elevation_large">16dp</dimen>
+    <dimen name="elevation_medium">12dp</dimen>
+    <dimen name="elevation_normal_10dp">10dp</dimen>
+    <dimen name="elevation_normal">8dp</dimen>
+    <dimen name="elevation_small">4dp</dimen>
+    <dimen name="elevation_micro">2dp</dimen>
+    <dimen name="elevation_nano">1dp</dimen>
+    <dimen name="elevation_default">@dimen/elevation_large</dimen>
+
+    <!-- Border Radius -->
+    <dimen name="border_radius_micro">1dp</dimen>
+    <dimen name="border_radius_small">2dp</dimen>
+    <dimen name="border_radius_medium">4dp</dimen>
+    <dimen name="border_radius_medium_5">5dp</dimen>
+    <dimen name="border_radius_large">6dp</dimen>
+    <dimen name="border_radius_huge">8dp</dimen>
+    <dimen name="border_radius_enormous">10dp</dimen>
+    <dimen name="border_radius_20">20dp</dimen>
+
+    <dimen name="border_radius_card">10dp</dimen>
+
+    <!-- Border Radius -->
+    <dimen name="border_size_default">@dimen/border_size_micro</dimen>
+    <dimen name="border_size_pico">0.2dp</dimen>
+    <dimen name="border_size_micro">1dp</dimen>
+    <dimen name="border_size_small">2dp</dimen>
+    <dimen name="border_size_normal">3dp</dimen>
+    <dimen name="border_size_medium">4dp</dimen>
+
+    <!-- Shimmmer -->
+    <dimen name="shimmer_text_height_normal">11dp</dimen>
+    <dimen name="shimmer_text_height_medium">14dp</dimen>
+    <dimen name="shimmer_text_height_large">16dp</dimen>
+
+    <dimen name="shimmer_text_width_micro">40dp</dimen>
+    <dimen name="shimmer_text_width_small">60dp</dimen>
+    <dimen name="shimmer_text_width_normal">80dp</dimen>
+    <dimen name="shimmer_text_width_medium">120dp</dimen>
+
+    <!-- Loading Dialog -->
+    <dimen name="dialog_loading_width">280dp</dimen>
+
+</resources>

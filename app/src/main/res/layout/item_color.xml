@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="item"
+            type="Integer" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/color"
+            style="@style/CardViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="34dp"
+            android:layout_marginHorizontal="@dimen/padding_small"
+            android:layout_marginVertical="@dimen/padding_large_20"
+            android:clipToPadding="false"
+            app:cardBackgroundColor="@{item}"
+            app:cardCornerRadius="@dimen/border_radius_card"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/badge_selection"
+            style="@style/CardViewStyle"
+            android:layout_width="41dp"
+            android:layout_height="4dp"
+            android:layout_margin="@dimen/padding_normal"
+            android:visibility="invisible"
+            app:cardBackgroundColor="@{item}"
+            app:cardCornerRadius="@dimen/border_radius_card"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/color" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

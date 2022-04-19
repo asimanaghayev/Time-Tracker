@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#103052</color>
+    <color name="colorPrimaryDark">#353B48</color>
+    <color name="colorPrimaryLight">#20046EDB</color>
+
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="white">#FFFFFF</color>
+    <color name="white_10">#1AFFFFFF</color>
+    <color name="white_50">#80FFFFFF</color>
+    <color name="white_70">#B3FFFFFF</color>
+    <color name="white_80">#CCFFFFFF</color>
+
+    <color name="percent_green">#2EBD85</color>
+    <color name="percent_red">#F5465D</color>
+    <color name="percent_gray">#848E9C</color>
+
+    <color name="black">#000000</color>
+    <color name="black_3">#08000000</color>
+    <color name="black_10">#19000000</color>
+    <color name="black_40">#67000000</color>
+    <color name="black_70">#B3000000</color>
+    <color name="black_80">#CC000000</color>
+
+    <color name="bg_secondary">#F3F3F5</color>
+
+    <color name="colorAccent">#03DAC5</color>
+    <color name="blueRibbon800">#016FE8</color>
+
+    <!-- RIPPLE -->
+    <eat-comment />
+    <color name="ripple_color">@color/black_10</color>
+    <color name="ripple_mask">#62ffffff</color>
+    <color name="shimmer">#C2C2C2</color>
+
+    <!-- Border -->
+    <color name="border_enabled">#e1e2e9</color>
+    <color name="border_disabled">#dae1e8</color>
+    <color name="border_focused">#666</color>
+    <color name="border_error">#e76a70</color>
+
+    <!-- Box Background -->
+    <color name="box_bg_enabled">#E5E5E5</color>
+    <color name="box_bg_disabled">#ebeff5</color>
+    <color name="box_bg_focused">#fff</color>
+    <color name="box_bg_error">#fdf0f2</color>
+
+    <!-- Text -->
+    <color name="text_primary">#333333</color>
+    <color name="text_secondary">#9496AC</color>
+    <color name="text_light">#FFFFFF</color>
+    <color name="text_light_50">@color/white_50</color>
+    <color name="text_faded">#747474</color>
+    <color name="text_hint">#808080</color>
+    <color name="text_error">#d76f78</color>
+
+    <!-- Icon -->
+    <color name="icon_error">#e2515b</color>
+    <color name="icon_color">@color/colorPrimaryDark</color>
+
+    <!-- Dialogs -->
+    <color name="mirage200">#A2A5A7</color>
+    <color name="mirage400">#5D6166</color>
+    <color name="mirage500">#454A50</color>
+    <color name="mirage700">#171D24</color>
+
+    <!--  Color Palette  -->
+    <color name="light_blue">#7B61FF</color>
+    <color name="violet">#850DBE</color>
+    <color name="flirt">#AF026A</color>
+    <color name="milano_red">#B51111</color>
+    <color name="atlantis">#A4D41A</color>
+    <color name="spring_green">#1B7534</color>
+    <color name="green_blue">#02AFA5</color>
+    <color name="palatinate_blue">#2521E3</color>
+    <color name="jasmine">#FFD875</color>
+    <color name="blue_smoke">#7A8386</color>
+    <color name="cement_gray">#A7AE93</color>
+    <color name="pale_copper">#DD8470</color>
+
+</resources>

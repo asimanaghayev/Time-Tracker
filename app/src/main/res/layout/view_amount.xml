@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.textfield.TextInputLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/input_layout"
+    style="@style/CustomTextInputStyle"
+    android:orientation="vertical"
+    android:theme="@style/CustomTextInputTheme">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/value"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="start"
+        android:inputType="numberDecimal"
+        android:overScrollMode="always"
+        android:paddingHorizontal="@dimen/padding_large"
+        android:paddingVertical="@dimen/padding_small"
+        android:saveEnabled="false"
+        android:scrollbarStyle="insideInset"
+        android:scrollbars="vertical"
+        android:singleLine="false"
+        android:textColor="@color/text_primary"
+        android:textColorHint="@color/text_hint"
+        android:textCursorDrawable="@null"
+        android:textFontWeight="400"
+        android:textSize="@dimen/font_size_small"
+        tools:text="100000.00" />
+
+</com.google.android.material.textfield.TextInputLayout>

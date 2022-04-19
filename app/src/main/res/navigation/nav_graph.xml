@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_main"
+    app:startDestination="@id/fragment_home">
+
+    <fragment
+        android:id="@+id/fragment_home"
+        android:name="com.nsp.timetracker.ui.home.HomeFragment"
+        android:label="Home Fragment"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_to_addCategory"
+            app:destination="@+id/fragment_add">
+            <argument
+                android:name="isCategory"
+                android:defaultValue="true"
+                app:argType="boolean" />
+            <argument
+                android:name="category"
+                android:defaultValue="@null"
+                app:argType="com.nsp.timetracker.data.db.model.Category"
+                app:nullable="true" />
+        </action>
+        <action
+            android:id="@+id/action_to_addProject"
+            app:destination="@+id/fragment_add">
+            <argument
+                android:name="isCategory"
+                android:defaultValue="false"
+                app:argType="boolean" />
+            <argument
+                android:name="category"
+                app:argType="com.nsp.timetracker.data.db.model.Category" />
+        </action>
+        <action
+            android:id="@+id/action_to_history"
+            app:destination="@+id/fragment_history" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_add"
+        android:name="com.nsp.timetracker.ui.adddata.AddFragment"
+        android:label="Add Fragment"
+        tools:layout="@layout/fragment_add">
+        <argument
+            android:name="isCategory"
+            app:argType="boolean" />
+        <argument
+            android:name="category"
+            app:argType="com.nsp.timetracker.data.db.model.Category"
+            app:nullable="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_history"
+        android:name="com.nsp.timetracker.ui.history.HistoryFragment"
+        android:label="History Fragment"
+        tools:layout="@layout/fragment_history" />
+
+</navigation>

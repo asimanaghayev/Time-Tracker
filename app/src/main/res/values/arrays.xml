@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="palette">
+        <item>@color/light_blue</item>
+        <item>@color/violet</item>
+        <item>@color/flirt</item>
+        <item>@color/milano_red</item>
+        <item>@color/atlantis</item>
+        <item>@color/spring_green</item>
+        <item>@color/green_blue</item>
+        <item>@color/palatinate_blue</item>
+        <item>@color/jasmine</item>
+        <item>@color/blue_smoke</item>
+        <item>@color/cement_gray</item>
+        <item>@color/pale_copper</item>
+    </array>
+</resources>
