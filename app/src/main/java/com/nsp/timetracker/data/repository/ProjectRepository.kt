@@ -14,6 +14,10 @@ class ProjectRepository @Inject constructor(
 
     val projects get() = projectDao.getAll()
 
+    fun getAll(categoryId: Long): Flow<List<Project>> {
+        return projectDao.getAll(categoryId)
+    }
+
     fun getProject(id: Long): Flow<Project> {
         return projectDao.get(id)
     }

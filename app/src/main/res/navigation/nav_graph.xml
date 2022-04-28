@@ -57,6 +57,54 @@
         android:id="@+id/fragment_history"
         android:name="com.nsp.timetracker.ui.history.HistoryFragment"
         android:label="History Fragment"
-        tools:layout="@layout/fragment_history" />
+        tools:layout="@layout/fragment_history">
+        <action
+            android:id="@+id/action_to_editRecord"
+            app:destination="@id/fragment_add_record">
+            <argument
+                android:name="history"
+                app:argType="com.nsp.timetracker.data.db.model.History" />
+        </action>
+        <action
+            android:id="@+id/action_to_addRecord"
+            app:destination="@id/fragment_add_record">
+            <argument
+                android:name="history"
+                android:defaultValue="@null"
+                app:argType="com.nsp.timetracker.data.db.model.History"
+                app:nullable="true" />
+        </action>
+        <action
+            android:id="@+id/action_to_statistics"
+            app:destination="@+id/fragment_statistics" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_add_record"
+        android:name="com.nsp.timetracker.ui.addrecord.AddRecordFragment"
+        android:label="Add Record Fragment"
+        tools:layout="@layout/fragment_add_record">
+        <argument
+            android:name="history"
+            app:argType="com.nsp.timetracker.data.db.model.History"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_to_addProject"
+            app:destination="@+id/fragment_add">
+            <argument
+                android:name="isCategory"
+                android:defaultValue="false"
+                app:argType="boolean" />
+            <argument
+                android:name="category"
+                app:argType="com.nsp.timetracker.data.db.model.Category" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_statistics"
+        android:name="com.nsp.timetracker.ui.statistics.StatisticsFragment"
+        android:label="Statistics Fragment"
+        tools:layout="@layout/fragment_statistics" />
 
 </navigation>

@@ -5,6 +5,8 @@
     <string name="btn_save_changes">Dəyişiklikləri yaddaşda saxla</string>
     <string name="btn_close">Bağla</string>
     <string name="btn_add">Əlavə et</string>
+    <string name="btn_ok">OK</string>
+    <string name="btn_cancel">Ləğv et</string>
 
     <!-- Labels -->
 
@@ -24,5 +26,15 @@
     <string name="hint_category_name">Kategoriya adı</string>
     <string name="hint_category">Kateqoriya</string>
     <string name="hint_project_name">Proyekt adı</string>
+    <string name="hint_project">Proyekt</string>
+    <string name="hint_project_concat">Proyekt: %1$s</string>
+
+    <!--  Labels  -->
+    <string name="label_today">Today</string>
+    <string name="btn_statistics">Ümumi statistika</string>
+    <string name="title_daily">Günlük</string>
+    <string name="title_weekly">Həftəlik</string>
+    <string name="title_monthly">Aylıq</string>
+    <string name="label_select_project">Proyekti seçin</string>
 
 </resources>

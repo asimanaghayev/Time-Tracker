@@ -1,57 +1,75 @@
 package com.nsp.timetracker.ui.home
 
-import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.TextView
-import androidx.annotation.StringRes
+import androidx.core.view.isVisible
 import com.nsp.timetracker.R
-import com.nsp.timetracker.data.db.model.Category
+import com.nsp.timetracker.data.db.model.CategoryProject
+import com.nsp.timetracker.data.db.model.History
+import com.nsp.timetracker.data.db.model.Project
 import com.nsp.timetracker.databinding.ItemCategoryBinding
+import com.nsp.timetracker.support.extensions.expandCollapse
+import com.nsp.timetracker.support.extensions.setEndDrawable
+import com.nsp.timetracker.ui.base.adapter.BaseAdapter
+import com.nsp.timetracker.ui.base.adapter.ItemClickListener
+import com.nsp.timetracker.ui.base.adapter.MultiClickListener
 
 class CategoryAdapter(
-    context: Context,
-    items: List<Category>,
-) : ArrayAdapter<Category>(context, 0, items) {
+    itemClickListener: ItemClickListener<CategoryProject>,
+    private val projectListener: MultiClickListener<Project>,
+) :
+    BaseAdapter<CategoryProject, BaseAdapter.BaseViewHolder<CategoryProject>>(itemClickListener) {
 
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        var view: View = LayoutInflater.from(parent.context)
-            .inflate(android.R.layout.simple_list_item_1, parent, false)
+    var selectedItems: List<History> = listOf()
 
-        getItem(position)?.let { category ->
-            val itemBinding =
-                ItemCategoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-            setItemForCategory(itemBinding, category)
-            view = itemBinding.root
-        } ?: run {
-            setHint(view, R.string.hint_category)
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int,
+    ): BaseViewHolder<CategoryProject> {
+        return CategoryViewHolder(
+            ItemCategoryBinding.inflate(LayoutInflater.from(parent.context), parent, false),
+            itemClickListener
+        )
+    }
+
+    inner class CategoryViewHolder(
+        private val binding: ItemCategoryBinding,
+        onCLick: ItemClickListener<CategoryProject>?,
+    ) : BaseAdapter.BaseViewHolder<CategoryProject>(binding.root, onCLick) {
+
+        lateinit var adapter: ProjectAdapter
+
+        override fun bind(item: CategoryProject, position: Int) {
+            super.bind(item, position)
+            binding.item = item
+
+            setupProjectAdapter(item)
+            binding.labelName.setOnClickListener {
+                binding.labelName.setEndDrawable(
+                    if (binding.rvProjects.isVisible) {
+                        R.drawable.ic_arrow_down
+                    } else {
+                        R.drawable.ic_arrow_up
+                    }
+                )
+                binding.rvProjects.expandCollapse()
+            }
+            binding.labelAddProject.setOnClickListener {
+                itemClickListener?.onItemClick(item)
+            }
         }
 
-        return view
-    }
+        private fun setupProjectAdapter(item: CategoryProject) {
+            adapter = ProjectAdapter(projectListener)
+            adapter.setItems(item.projects as ArrayList<Project>)
+            if (!selectedItems.isNullOrEmpty()) adapter.selectedItems = selectedItems
 
-    private fun setHint(view: View, @StringRes res: Int) {
-        view.findViewById<TextView>(android.R.id.text1).setText(res)
-    }
-
-    override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup): View {
-        return getView(position, convertView, parent)
-    }
-
-    override fun getItem(position: Int): Category? {
-        if (position == 0) {
-            return null
+            binding.rvProjects.adapter = adapter
         }
-        return super.getItem(position - 1)
-    }
 
-    override fun getCount() = super.getCount() + 1
-
-    override fun isEnabled(position: Int) = position != 0
-
-    private fun setItemForCategory(binding: ItemCategoryBinding, category: Category) {
-        binding.item = category
+        fun notifyProjectsUpdated() {
+            adapter.selectedItems = selectedItems
+            adapter.notifyDataSetChanged()
+        }
     }
 }

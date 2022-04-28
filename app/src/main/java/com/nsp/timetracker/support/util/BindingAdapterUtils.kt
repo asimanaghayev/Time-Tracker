@@ -6,15 +6,13 @@ import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.nsp.timetracker.R
+import com.nsp.timetracker.support.extensions.round
+import com.nsp.timetracker.support.extensions.timeFormat
+import com.nsp.timetracker.uikit.view.DateTimePickerView
+import java.util.*
 
 
 object BindingAdapterUtils {
-
-    @BindingAdapter("data")
-    @JvmStatic
-    internal fun TextView.setData(data: Float?) {
-        text = data?.round().toString()
-    }
 
     @BindingAdapter("percent")
     @JvmStatic
@@ -41,10 +39,16 @@ object BindingAdapterUtils {
         text = displayText
     }
 
+    @BindingAdapter("date")
+    @JvmStatic
+    internal fun TextView.setDuration(date: Long) {
+        text = (date / 1000).timeFormat()
+    }
+
     @BindingAdapter("startDate", "endDate")
     @JvmStatic
     internal fun TextView.setDuration(startDate: Long, endDate: Long) {
-        text = ((endDate - startDate) / 1000).timeFormat()
+        setDuration(endDate - startDate)
     }
 
     @BindingAdapter("imageUrl")
@@ -57,5 +61,11 @@ object BindingAdapterUtils {
                     .fitCenter())
                 .into(this)
         }
+    }
+
+    @BindingAdapter("date")
+    @JvmStatic
+    internal fun DateTimePickerView.setDate(date: Long?) {
+        date?.let { this.date = Date(it) }
     }
 }

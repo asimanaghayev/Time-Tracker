@@ -19,6 +19,7 @@
     <color name="black">#000000</color>
     <color name="black_3">#08000000</color>
     <color name="black_10">#19000000</color>
+    <color name="black_30">#4D000000</color>
     <color name="black_40">#67000000</color>
     <color name="black_70">#B3000000</color>
     <color name="black_80">#CC000000</color>
@@ -58,6 +59,7 @@
     <!-- Icon -->
     <color name="icon_error">#e2515b</color>
     <color name="icon_color">@color/colorPrimaryDark</color>
+    <color name="icon_header_color">#007AFF</color>
 
     <!-- Dialogs -->
     <color name="mirage200">#A2A5A7</color>

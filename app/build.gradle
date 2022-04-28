@@ -112,4 +112,11 @@ dependencies {
     // shimmer loading
     implementation "com.facebook.shimmer:shimmer:$version_shimmer"
 
+    //Material Dialogs UI
+    implementation 'com.afollestad.material-dialogs:core:0.9.6.0'
+
+    // DatePicker
+    api 'com.wdullaer:materialdatetimepicker:4.2.3'
+
+
 }

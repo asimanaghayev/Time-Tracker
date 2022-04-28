@@ -13,7 +13,7 @@ import androidx.core.content.ContextCompat
 import com.nsp.timetracker.R
 import com.nsp.timetracker.databinding.ViewAmountBinding
 import com.nsp.timetracker.support.filter.DecimalDigitsInputFilter
-import com.nsp.timetracker.support.util.round
+import com.nsp.timetracker.support.extensions.round
 import java.math.BigDecimal
 
 class AmountView @JvmOverloads constructor(

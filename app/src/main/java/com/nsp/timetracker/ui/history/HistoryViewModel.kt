@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.nsp.timetracker.data.db.dao.model.StatisticsCategory
 import com.nsp.timetracker.data.db.model.History
 import com.nsp.timetracker.data.repository.HistoryRepository
 import com.nsp.timetracker.ui.base.BaseViewModel
@@ -16,19 +17,37 @@ import javax.inject.Inject
 @HiltViewModel
 class HistoryViewModel @Inject constructor(
     application: Application,
-    historyRep: HistoryRepository,
+    private val historyRep: HistoryRepository,
 ) : BaseViewModel(application) {
 
-    private val _allHistory: MutableLiveData<List<History>> = MutableLiveData<List<History>>()
-    val allHistory: LiveData<List<History>> = _allHistory
+    private val _allHistoryProject: MutableLiveData<List<History>> =
+        MutableLiveData<List<History>>()
+    val allHistoryProject: LiveData<List<History>> = _allHistoryProject
+
+    private val _allStatisticsCategory: MutableLiveData<List<StatisticsCategory>> =
+        MutableLiveData<List<StatisticsCategory>>()
+    val allStatisticsCategory: LiveData<List<StatisticsCategory>> = _allStatisticsCategory
 
     init {
+        enumValues<HistoryType>().forEach {
+            getHistory(it)
+        }
+    }
 
+    private fun getHistory(type: HistoryType) {
         viewModelScope.launch(Dispatchers.IO) {
-            historyRep.getFinishedProjects().collect {
-                _allHistory.postValue(it as MutableList<History>?)
+            when (type) {
+                HistoryType.PROJECT -> {
+                    historyRep.getFinishedProjects().collect {
+                        _allHistoryProject.postValue(it as MutableList<History>?)
+                    }
+                }
+                HistoryType.CATEGORY -> {
+                    historyRep.getAllFinishedCategory().collect {
+                        _allStatisticsCategory.postValue(it as MutableList<StatisticsCategory>?)
+                    }
+                }
             }
         }
-
     }
 }

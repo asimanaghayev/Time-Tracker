@@ -13,6 +13,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/selected_color"
+            style="@style/ColorCardStyle"
+            android:layout_marginStart="@dimen/padding_huge"
+            app:cardBackgroundColor="@{item.color}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/label_name"
             style="@style/SecondaryTextStyle"
@@ -21,7 +30,7 @@
             android:layout_marginVertical="@dimen/padding_large"
             android:text="@{item.name}"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@id/selected_color"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView

@@ -13,6 +13,9 @@ abstract class ProjectDao {
     @Query("SELECT * FROM Project WHERE category_id==:categoryId")
     abstract fun getAll(categoryId: Long): Flow<List<Project>>
 
+    @Query("SELECT * FROM Project WHERE category_id==:categoryId")
+    abstract fun getAllDirectly(categoryId: Long): List<Project>
+
     @Query("SELECT * FROM Project WHERE id==:id")
     abstract fun get(id: Long): Flow<Project>
 

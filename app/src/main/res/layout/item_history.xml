@@ -15,14 +15,11 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/color"
-            style="@style/CardViewStyle"
-            android:layout_width="14dp"
-            android:layout_height="9dp"
+            style="@style/ColorCardStyle"
             android:layout_marginHorizontal="@dimen/padding_small"
             android:layout_marginVertical="@dimen/padding_large"
             android:clipToPadding="false"
             app:cardBackgroundColor="@{item.project.color}"
-            app:cardCornerRadius="@dimen/border_radius_small"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -35,8 +32,19 @@
             android:text="@{item.project.name}"
             android:textColor="@color/black_80"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/label_date"
+            app:layout_constraintEnd_toStartOf="@id/label_category"
             app:layout_constraintStart_toEndOf="@id/color"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/label_category"
+            style="@style/DefaultTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_marginEnd="@dimen/padding_huge"
+            android:text="@{item.project.category.name}"
+            android:textColor="@color/black_30"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/label_date"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -48,7 +56,17 @@
             android:layout_margin="@dimen/padding_large"
             android:textColor="@color/black_80"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/img_edit"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_edit"
+            android:layout_width="@dimen/icon_small"
+            android:layout_height="@dimen/icon_small"
+            android:src="@drawable/ic_edit"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

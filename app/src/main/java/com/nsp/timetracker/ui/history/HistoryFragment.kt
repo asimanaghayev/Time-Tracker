@@ -4,46 +4,55 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import com.nsp.timetracker.R
+import com.nsp.timetracker.data.db.dao.model.StatisticsCategory
 import com.nsp.timetracker.data.db.model.History
 import com.nsp.timetracker.databinding.FragmentHistoryBinding
 import com.nsp.timetracker.ui.base.BaseFragment
-import com.nsp.timetracker.ui.base.adapter.MultiClickListener
+import com.nsp.timetracker.ui.base.adapter.ItemClickListener
 import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
-class HistoryFragment : BaseFragment<HistoryViewModel>() {
 
-    private lateinit var binding: FragmentHistoryBinding
+@AndroidEntryPoint
+class HistoryFragment : BaseFragment<FragmentHistoryBinding, HistoryViewModel>() {
 
     override val viewModel: HistoryViewModel by viewModels()
 
-    private var historyAdapter: HistoryAdapter =
-        HistoryAdapter(object : MultiClickListener<History> {
-            override fun onItemClick(item: History, position: Int, clickType: Int) {
-                // TODO: not implemented yet
+    override val isDarkActionBar: Boolean
+        get() = true
+
+    private val types: Array<String> by lazy {
+        resources.getStringArray(R.array.history_type)
+    }
+
+    private var projectAdapter: HistoryAdapter =
+        HistoryAdapter(object : ItemClickListener<History> {
+            override fun onItemClick(item: History) {
+                navigate(HistoryFragmentDirections.actionToEditRecord(item))
             }
         })
 
-    override fun onCreateView(
+    private var categoryAdapter: HistoryCategoryAdapter =
+        HistoryCategoryAdapter(object : ItemClickListener<StatisticsCategory> {
+            override fun onItemClick(item: StatisticsCategory) {}
+        })
+
+    override fun createBinding(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View {
-        binding = DataBindingUtil.inflate(
-            layoutInflater,
-            R.layout.fragment_history,
-            container,
-            false
-        )
-        return binding.root
+    ): FragmentHistoryBinding {
+        return FragmentHistoryBinding.inflate(inflater, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         bindUi()
+        setupClicks()
+        setupSpinner()
         setupHistoryAdapter()
     }
 
@@ -52,10 +61,50 @@ class HistoryFragment : BaseFragment<HistoryViewModel>() {
         viewmodel = viewModel
     }
 
-    private fun setupHistoryAdapter() {
-        viewModel.allHistory.observe(viewLifecycleOwner) {
-            historyAdapter.setItems(it)
+    private fun setupClicks() {
+        binding.addClick = View.OnClickListener {
+            navigate(HistoryFragmentDirections.actionToAddRecord())
         }
-        binding.rvHistory.adapter = historyAdapter
+    }
+
+    private fun setupSpinner() = with(binding.spinnerHistoryType) {
+        onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
+                binding.rvHistoryCategory.isVisible = position == HistoryType.CATEGORY.ordinal
+                binding.rvHistoryProject.isVisible = position == HistoryType.PROJECT.ordinal
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+                TODO("Not yet implemented")
+            }
+        }
+
+        val typeAdapter: ArrayAdapter<*> = ArrayAdapter<Any?>(
+            context,
+            android.R.layout.simple_spinner_item,
+            types)
+        typeAdapter.setDropDownViewResource(
+            android.R.layout.simple_spinner_dropdown_item)
+        adapter = typeAdapter
+    }
+
+    private fun setupHistoryAdapter() {
+        viewModel.allHistoryProject.observe(viewLifecycleOwner) {
+            projectAdapter.setItems(it)
+        }
+        binding.rvHistoryProject.adapter = projectAdapter
+
+        viewModel.allStatisticsCategory.observe(viewLifecycleOwner) {
+            categoryAdapter.setItems(it)
+        }
+        binding.rvHistoryCategory.adapter = categoryAdapter
+    }
+
+    override fun setupActionBar() {
+        super.setupActionBar()
+
+        getHeader().setRightButtonLabel(R.string.btn_statistics) {
+            navigate(HistoryFragmentDirections.actionToStatistics())
+        }
     }
 }

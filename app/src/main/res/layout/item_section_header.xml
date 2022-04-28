@@ -4,7 +4,7 @@
     android:id="@+id/header"
     style="@style/SecondaryTextStyle"
     android:layout_marginHorizontal="@dimen/padding_small"
-    android:layout_marginTop="@dimen/padding_large"
+    android:layout_marginTop="@dimen/padding_enormous"
     android:layout_marginBottom="@dimen/padding_normal"
     android:textColor="@color/black"
     android:textSize="@dimen/font_size_medium"

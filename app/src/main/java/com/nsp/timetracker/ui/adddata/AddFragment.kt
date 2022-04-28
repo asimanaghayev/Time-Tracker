@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
@@ -16,11 +15,13 @@ import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class AddFragment : BaseFragment<AddViewModel>() {
+class AddFragment : BaseFragment<FragmentAddBinding, AddViewModel>() {
 
-    private lateinit var binding: FragmentAddBinding
     override val viewModel: AddViewModel by viewModels()
     private val args: AddFragmentArgs by navArgs()
+
+    override val isDarkActionBar: Boolean
+         get() = true
 
     private val adapter: ColorsAdapter = ColorsAdapter(object : ItemClickListener<Int> {
         override fun onItemClick(item: Int) {
@@ -28,18 +29,11 @@ class AddFragment : BaseFragment<AddViewModel>() {
         }
     })
 
-    override fun onCreateView(
+    override fun createBinding(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View {
-        binding = DataBindingUtil.inflate(
-            layoutInflater,
-            R.layout.fragment_add,
-            container,
-            false
-        )
-        return binding.root
+    ): FragmentAddBinding {
+        return FragmentAddBinding.inflate(inflater, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

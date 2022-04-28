@@ -22,4 +22,10 @@ data class History(
 
     @ColumnInfo(defaultValue = "CURRENT_TIMESTAMP")
     var endDate: Long = 0,
+
+    @ColumnInfo(defaultValue = "CURRENT_TIMESTAMP")
+    var monthDate: Long = 0,
+
+    @ColumnInfo(defaultValue = "CURRENT_TIMESTAMP")
+    var weekDate: Long = 0,
 ) : Parcelable

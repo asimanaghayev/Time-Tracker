@@ -1,17 +1,29 @@
 package com.nsp.timetracker.ui.base
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
+import androidx.annotation.NonNull
+import androidx.core.view.isVisible
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavDirections
+import androidx.navigation.Navigator
 import androidx.navigation.fragment.findNavController
+import androidx.viewbinding.ViewBinding
 import com.nsp.timetracker.R
+import com.nsp.timetracker.support.extensions.setupStatusBarColor
+import com.nsp.timetracker.support.extensions.toast
 import com.nsp.timetracker.support.tools.NavigationCommand
-import com.nsp.timetracker.support.util.toast
 import com.nsp.timetracker.uikit.dialog.LoadingDialog
+import com.nsp.timetracker.uikit.view.Header
 import java.lang.UnknownError
 
-abstract class BaseFragment<VM : BaseViewModel> : Fragment() {
+abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel> : Fragment() {
+
+    private var _binding: VB? = null
+    protected val binding: VB get() = _binding!!
 
     protected abstract val viewModel: VM
 
@@ -26,21 +38,46 @@ abstract class BaseFragment<VM : BaseViewModel> : Fragment() {
         )
     }
 
+    protected open val isDarkActionBar: Boolean = false
+    protected open val isHeaderEnabled: Boolean = true
+
+    abstract fun createBinding(inflater: LayoutInflater, container: ViewGroup?): VB
+
+    final override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
+    ): View {
+        _binding = createBinding(inflater, container)
+        return binding.root
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         bindNavController()
         bindCommonEffects()
         bindMessage()
         bindLoading()
     }
 
+    override fun onStart() {
+        super.onStart()
+        setupActionBar()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    fun isBindingNotNull(): Boolean = _binding != null
+
     private fun bindNavController() {
         viewModel.navigationCommands.observe(viewLifecycleOwner) { command ->
             when (command) {
                 is NavigationCommand.To -> {
                     command.extras?.let { extras ->
-                        findNavController().navigate(
+                        navigate(
                             command.directions,
                             extras
                         )
@@ -74,6 +111,17 @@ abstract class BaseFragment<VM : BaseViewModel> : Fragment() {
         }
     }
 
+    open fun navigate(
+        @NonNull directions: NavDirections,
+        @NonNull navigatorExtras: Navigator.Extras,
+    ) {
+        findNavController().navigate(directions, navigatorExtras)
+    }
+
+    open fun navigate(directions: NavDirections) {
+        findNavController().navigate(directions.actionId, directions.arguments)
+    }
+
     protected open fun showNoInternet() {
         if (noInternetDialog?.isAdded == false)
             noInternetDialog?.show("internet-error-dialog")
@@ -98,6 +146,26 @@ abstract class BaseFragment<VM : BaseViewModel> : Fragment() {
                 it.dismiss()
             }
         ).show("show-error-dialog")
+    }
+
+    protected open fun setupActionBar() = with(getHeader()) {
+        val color: Int =
+            if (isDarkActionBar) R.color.colorPrimary
+            else R.color.white
+
+        setupStatusBarColor(activity as MainActivity, color, isDarkActionBar)
+        isVisible = isHeaderEnabled
+
+        resetButtons()
+        setLeftButton(R.drawable.ic_back) {
+            findNavController().popBackStack()
+        }
+
+        setupTheme(isDarkActionBar)
+    }
+
+    protected fun getHeader(): Header {
+        return (activity as MainActivity).getHeader()
     }
 
     private fun bindLoading() {

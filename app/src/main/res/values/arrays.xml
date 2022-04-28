@@ -15,4 +15,16 @@
         <item>@color/cement_gray</item>
         <item>@color/pale_copper</item>
     </array>
+
+    <array name="history_type">
+        <item>@string/hint_project</item>
+        <item>@string/hint_category</item>
+    </array>
+
+    <array name="timing_type">
+        <item>@string/title_daily</item>
+        <item>@string/title_weekly</item>
+        <item>@string/title_monthly</item>
+    </array>
+
 </resources>

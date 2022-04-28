@@ -7,15 +7,26 @@
         <entry key="../../Library/Android/sdk/platforms/android-31/data/res/layout/simple_list_item_1.xml" value="0.14947916666666666" />
         <entry key="app/src/main/res/drawable-v21/bg_button_primary.xml" value="0.136" />
         <entry key="app/src/main/res/drawable-v21/bg_button_secondary.xml" value="0.136" />
+        <entry key="app/src/main/res/drawable-v21/bg_button_transparent.xml" value="0.159" />
         <entry key="app/src/main/res/drawable-v24/bg_button_primary.xml" value="0.136" />
         <entry key="app/src/main/res/drawable/bg_button_primary.xml" value="0.136" />
+        <entry key="app/src/main/res/drawable/bg_button_secondary.xml" value="0.159" />
+        <entry key="app/src/main/res/drawable/bg_button_transparent.xml" value="0.159" />
         <entry key="app/src/main/res/drawable/bg_edit_text.xml" value="0.182" />
         <entry key="app/src/main/res/drawable/bg_page_dark.xml" value="0.6388954467773438" />
         <entry key="app/src/main/res/drawable/bg_percent_gray.xml" value="0.136" />
         <entry key="app/src/main/res/drawable/bg_percent_green.xml" value="0.136" />
         <entry key="app/src/main/res/drawable/bg_percent_red.xml" value="0.136" />
+        <entry key="app/src/main/res/drawable/bg_spinner.xml" value="0.159" />
+        <entry key="app/src/main/res/drawable/bg_white_radius_small.xml" value="0.159" />
         <entry key="app/src/main/res/drawable/bg_white_round_rect.xml" value="0.136" />
+        <entry key="app/src/main/res/drawable/ic_add.xml" value="0.252" />
+        <entry key="app/src/main/res/drawable/ic_add_white.xml" value="0.182" />
         <entry key="app/src/main/res/drawable/ic_alert_no_internet.xml" value="0.136" />
+        <entry key="app/src/main/res/drawable/ic_arrow_down.xml" value="0.159" />
+        <entry key="app/src/main/res/drawable/ic_arrow_up.xml" value="0.182" />
+        <entry key="app/src/main/res/drawable/ic_back.xml" value="0.159" />
+        <entry key="app/src/main/res/drawable/ic_check.xml" value="0.182" />
         <entry key="app/src/main/res/drawable/ic_error.xml" value="0.136" />
         <entry key="app/src/main/res/drawable/ic_info.xml" value="0.136" />
         <entry key="app/src/main/res/drawable/ic_minus.xml" value="0.124" />
@@ -23,23 +34,33 @@
         <entry key="app/src/main/res/drawable/ic_plus.xml" value="0.136" />
         <entry key="app/src/main/res/drawable/ic_stop.xml" value="0.182" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.23229166666666667" />
+        <entry key="app/src/main/res/layout/dialog_custom.xml" value="0.14947916666666666" />
         <entry key="app/src/main/res/layout/dialog_loading.xml" value="0.24635416666666668" />
         <entry key="app/src/main/res/layout/fragment_add.xml" value="0.24635416666666668" />
+        <entry key="app/src/main/res/layout/fragment_add_record.xml" value="0.30834419817470665" />
+        <entry key="app/src/main/res/layout/fragment_base.xml" value="0.14947916666666666" />
         <entry key="app/src/main/res/layout/fragment_bottom_sheet_dialog_base.xml" value="0.24635416666666668" />
         <entry key="app/src/main/res/layout/fragment_coin.xml" value="0.26957550048828127" />
-        <entry key="app/src/main/res/layout/fragment_history.xml" value="0.24635416666666668" />
+        <entry key="app/src/main/res/layout/fragment_history.xml" value="0.2812128418549346" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.3442389758179232" />
-        <entry key="app/src/main/res/layout/item_category.xml" value="0.3658050537109375" />
+        <entry key="app/src/main/res/layout/fragment_inline_tabbed.xml" value="0.14947916666666666" />
+        <entry key="app/src/main/res/layout/fragment_statistics.xml" value="0.24635416666666668" />
+        <entry key="app/src/main/res/layout/fragment_statistics_item.xml" value="0.24635416666666668" />
+        <entry key="app/src/main/res/layout/item_category.xml" value="0.7339449541284404" />
         <entry key="app/src/main/res/layout/item_coin.xml" value="0.24788970947265626" />
         <entry key="app/src/main/res/layout/item_coin_shimmer.xml" value="0.24635416666666668" />
         <entry key="app/src/main/res/layout/item_color.xml" value="0.2938379923502604" />
         <entry key="app/src/main/res/layout/item_colors.xml" value="0.24635416666666668" />
         <entry key="app/src/main/res/layout/item_history.xml" value="0.17051260811941965" />
+        <entry key="app/src/main/res/layout/item_history_category.xml" value="0.14947916666666666" />
         <entry key="app/src/main/res/layout/item_history_shimmer.xml" value="0.24635416666666668" />
         <entry key="app/src/main/res/layout/item_ongoing_project.xml" value="0.7145456949869792" />
         <entry key="app/src/main/res/layout/item_project.xml" value="0.24635416666666668" />
         <entry key="app/src/main/res/layout/item_section_header.xml" value="0.24635416666666668" />
+        <entry key="app/src/main/res/layout/item_statistics_project.xml" value="0.24635416666666668" />
         <entry key="app/src/main/res/layout/view_amount.xml" value="0.25229740977107484" />
+        <entry key="app/src/main/res/layout/view_date_time_picker.xml" value="0.24635416666666668" />
+        <entry key="app/src/main/res/layout/view_header.xml" value="0.9449549357096354" />
         <entry key="app/src/main/res/layout/view_info_edit_text.xml" value="0.11302083333333333" />
         <entry key="app/src/main/res/layout/view_recycler_custom.xml" value="0.24635416666666668" />
         <entry key="app/src/main/res/layout/view_recycler_empty.xml" value="0.24635416666666668" />

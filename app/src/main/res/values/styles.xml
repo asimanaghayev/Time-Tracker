@@ -10,6 +10,7 @@
         <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
     </style>
 
+    <!--  Card Styles  -->
     <style name="CardViewStyle" parent="CardView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -17,6 +18,12 @@
         <item name="cardBackgroundColor">@color/white</item>
         <item name="cardCornerRadius">@dimen/border_radius_card</item>
         <item name="cardElevation">@dimen/elevation_normal</item>
+    </style>
+
+    <style name="ColorCardStyle" parent="CardViewStyle">
+        <item name="android:layout_height">@dimen/item_color_height</item>
+        <item name="android:layout_width">@dimen/item_color_width</item>
+        <item name="cardCornerRadius">@dimen/border_radius_small</item>
     </style>
 
     <!-- TextView Styles-->
@@ -47,8 +54,22 @@
         <item name="android:fontFamily">@font/gilroy_regular</item>
     </style>
 
-    <!-- Percent View -->
+    <!--  DatePicker Style  -->
+    <style name="PickerViewStyle">
+        <item name="android:drawableRight">@drawable/ic_arrow_down</item>
+        <item name="android:textColorHint">@color/text_light</item>
+        <item name="android:inputType">none</item>
+        <item name="android:focusable">false</item>
+        <item name="android:cursorVisible">false</item>
+        <item name="android:editable">false</item>
+    </style>
 
+    <style name="PickerTextViewStyle" parent="@style/PickerViewStyle">
+        <item name="android:paddingBottom">@dimen/padding_small</item>
+        <item name="android:paddingTop">@dimen/padding_small</item>
+    </style>
+
+    <!-- Percent View -->
     <style name="PercentViewTextStyle" parent="DefaultTextStyle">
         <item name="android:layout_width">@dimen/percent_view_width</item>
         <item name="android:layout_height">@dimen/percent_view_height</item>
@@ -124,6 +145,29 @@
         <item name="boxCornerRadiusBottomStart">@dimen/border_radius_huge</item>
     </style>
 
+    <!--  EditText styles  -->
+    <style name="EditTextStyle" parent="Widget.AppCompat.EditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/spinner_height</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">@dimen/font_size_medium</item>
+        <item name="android:background">@drawable/bg_white_radius_small</item>
+        <item name="android:textCursorDrawable">@null</item>
+        <item name="android:layout_margin">@dimen/padding_large</item>
+        <item name="android:padding">@dimen/padding_normal</item>
+    </style>
+
+    <!--  Spinner Style  -->
+    <style name="SpinnerStyle" parent="Widget.AppCompat.Light.DropDownItem.Spinner">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/spinner_height</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">@dimen/font_size_medium</item>
+        <item name="android:spinnerMode">dropdown</item>
+        <item name="android:dropDownWidth">match_parent</item>
+        <item name="android:background">@drawable/bg_spinner</item>
+    </style>
+
     <!--  Shimmer Style  -->
     <style name="ShimmerStyle">
         <item name="android:layout_width">match_parent</item>
@@ -141,4 +185,15 @@
         <item name="android:layout_height">@dimen/shimmer_text_height_normal</item>
     </style>
 
+
+    <style name="DefaultTabLayoutStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/tab_size</item>
+        <item name="android:elevation">@dimen/padding_small</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:minHeight">@dimen/tab_size</item>
+        <item name="android:overScrollMode">never</item>
+        <item name="tabIndicatorColor">@color/colorPrimary</item>
+        <item name="tabIndicatorHeight">2dp</item>
+    </style>
 </resources>

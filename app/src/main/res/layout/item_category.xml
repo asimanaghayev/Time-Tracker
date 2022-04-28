@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
         <variable
             name="item"
-            type="com.nsp.timetracker.data.db.model.Category" />
+            type="com.nsp.timetracker.data.db.model.CategoryProject" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,15 +16,12 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/color"
-            style="@style/CardViewStyle"
-            android:layout_width="14dp"
-            android:layout_height="9dp"
+            style="@style/ColorCardStyle"
             android:layout_marginVertical="@dimen/padding_large_20"
             android:layout_marginStart="@dimen/padding_large"
             android:clipToPadding="false"
-            app:cardBackgroundColor="@{item.color}"
-            app:cardCornerRadius="@dimen/border_radius_small"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:cardBackgroundColor="@{item.category.color}"
+            app:layout_constraintBottom_toBottomOf="@id/label_name"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,11 +29,40 @@
             android:id="@+id/label_name"
             style="@style/SecondaryTextStyle"
             android:layout_width="0dp"
-            android:layout_margin="@dimen/padding_normal"
-            android:text="@{item.name}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="@dimen/padding_normal"
+            android:drawableEnd="@drawable/ic_arrow_down"
+            android:padding="@dimen/padding_large"
+            android:text="@{item.category.name}"
+            app:layout_constraintEnd_toStartOf="@id/label_add_project"
             app:layout_constraintStart_toEndOf="@id/color"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/label_add_project"
+            style="@style/SecondaryTextStyle"
+            android:layout_width="0dp"
+            android:drawablePadding="@dimen/padding_small"
+            android:paddingHorizontal="@dimen/padding_enormous"
+            android:paddingVertical="@dimen/padding_large"
+            android:text="Proyekt əlavə et"
+            android:textColor="@color/colorPrimary"
+            app:drawableEndCompat="@drawable/ic_add"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_projects"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:visibility="gone"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/label_name"
+            tools:listitem="@layout/item_project" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

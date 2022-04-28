@@ -7,7 +7,7 @@ import com.nsp.timetracker.data.db.model.History
 import com.nsp.timetracker.databinding.ItemOngoingProjectBinding
 import com.nsp.timetracker.support.listener.EmptyListener
 import com.nsp.timetracker.support.util.DateUtils
-import com.nsp.timetracker.support.util.timeFormat
+import com.nsp.timetracker.support.extensions.timeFormat
 import com.nsp.timetracker.ui.base.adapter.BaseAdapter
 import com.nsp.timetracker.ui.base.adapter.ItemClickListener
 import java.util.*

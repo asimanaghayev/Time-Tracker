@@ -87,7 +87,8 @@
             app:layout_constraintBottom_toTopOf="@id/barrier_page_top"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/guideline"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/item_ongoing_project" />
 
         <androidx.constraintlayout.widget.Barrier
             android:id="@+id/barrier_page_top"
@@ -96,36 +97,8 @@
             app:barrierDirection="bottom"
             app:constraint_referenced_ids="rv_ongoing_projects, " />
 
-        <androidx.appcompat.widget.AppCompatSpinner
-            android:id="@+id/spinner_projects"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/padding_large"
-            android:hint="@string/hint_category"
-            app:layout_constraintBottom_toBottomOf="@id/label_add_project"
-            app:layout_constraintEnd_toStartOf="@id/label_add_project"
-            app:layout_constraintHorizontal_weight="1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/label_add_project" />
-
-        <TextView
-            android:id="@+id/label_add_project"
-            style="@style/SecondaryTextStyle"
-            android:layout_width="0dp"
-            android:layout_margin="@dimen/padding_large"
-            android:drawablePadding="@dimen/padding_small"
-            android:onClick="@{() -> viewmodel.addProject()}"
-            android:padding="@dimen/padding_large"
-            android:text="Proyekt əlavə et"
-            android:textColor="@color/colorPrimary"
-            app:drawableEndCompat="@drawable/ic_add"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_weight="1"
-            app:layout_constraintStart_toEndOf="@id/spinner_projects"
-            app:layout_constraintTop_toBottomOf="@id/barrier_page_top" />
-
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_projects"
+            android:id="@+id/rv_categories"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginVertical="@dimen/padding_normal"
@@ -134,7 +107,7 @@
             app:layout_constraintBottom_toTopOf="@id/btn_add_category"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/label_add_project" />
+            app:layout_constraintTop_toBottomOf="@id/barrier_page_top" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_add_category"
