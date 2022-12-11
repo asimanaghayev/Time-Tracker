@@ -1,75 +1,49 @@
 package com.nsp.timetracker.support.extensions
 
-import android.os.Handler
-import android.os.Looper
 import android.view.View
 import android.view.animation.Animation
-import android.view.animation.Transformation
-import android.widget.LinearLayout
+import android.view.animation.ScaleAnimation
+import androidx.core.view.isVisible
+import com.nsp.timetracker.support.listener.EmptyAnimationListener
 
+private val EXPAND_ANIMATION_DURATION: Int = 400
+private const val SCALE_EXPANDED = 1f
+private const val SCALE_COLLAPSED = 0f
 
 fun View.expandCollapse() {
-    if (visibility == View.VISIBLE) collapse()
-    else expand()
+    if (isVisible) collapse(this)
+    else expand(this)
 }
 
-fun View.expand(animationListener: Animation.AnimationListener? = null) {
-    measure(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
-    val targetHeight = measuredHeight
-    layoutParams.height = 0
-    visibility = View.VISIBLE
-    val animation: Animation = object : Animation() {
-        override fun applyTransformation(
-            interpolatedTime: Float,
-            t: Transformation,
-        ) {
-            layoutParams.height =
-                if (interpolatedTime == 1f) LinearLayout.LayoutParams.WRAP_CONTENT else (targetHeight * interpolatedTime).toInt()
-            requestLayout()
-        }
+fun expand(view: View) {
+    view.isVisible = true
 
-        override fun willChangeBounds(): Boolean {
-            return true
-        }
-    }
-    animation.duration = (targetHeight / context.resources.displayMetrics.density).toLong()
-    if (animationListener != null) {
-        animation.setAnimationListener(animationListener)
-    }
-    Handler(Looper.getMainLooper()).postDelayed({
-        layoutParams.height = LinearLayout.LayoutParams.WRAP_CONTENT
-        requestLayout()
-    }, animation.duration)
-    startAnimation(animation)
+    val animation = ScaleAnimation(
+        SCALE_EXPANDED,
+        SCALE_EXPANDED,
+        SCALE_COLLAPSED,
+        SCALE_EXPANDED
+    )
+    animation.duration = EXPAND_ANIMATION_DURATION.toLong()
+    animation.fillAfter = true
+    view.startAnimation(animation)
 }
 
-fun View.collapse(animationListener: Animation.AnimationListener? = null) {
-    val initialHeight = measuredHeight
-    val animation: Animation = object : Animation() {
-        override fun applyTransformation(
-            interpolatedTime: Float,
-            t: Transformation,
-        ) {
-            if (interpolatedTime == 1f) {
-                visibility = View.GONE
-            } else {
-                layoutParams.height =
-                    initialHeight - (initialHeight * interpolatedTime).toInt()
-                requestLayout()
-            }
-        }
+fun collapse(view: View) {
+    val animation = ScaleAnimation(
+        SCALE_EXPANDED,
+        SCALE_EXPANDED,
+        SCALE_EXPANDED,
+        SCALE_COLLAPSED
+    )
+    animation.duration = EXPAND_ANIMATION_DURATION.toLong()
+    animation.fillAfter = true
 
-        override fun willChangeBounds(): Boolean {
-            return true
+    animation.setAnimationListener(object : EmptyAnimationListener() {
+        override fun onAnimationEnd(animation: Animation) {
+            view.isVisible = false
         }
-    }
-    animation.duration = (initialHeight / context.resources.displayMetrics.density).toLong()
-    if (animationListener != null) {
-        animation.setAnimationListener(animationListener)
-    }
-    Handler(Looper.getMainLooper()).postDelayed({
-        layoutParams.height = 0
-        requestLayout()
-    }, animation.duration)
-    startAnimation(animation)
+    })
+
+    view.startAnimation(animation)
 }

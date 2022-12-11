@@ -30,9 +30,9 @@
             style="@style/SecondaryTextStyle"
             android:layout_width="0dp"
             android:layout_marginHorizontal="@dimen/padding_normal"
-            android:drawableEnd="@drawable/ic_arrow_down"
             android:padding="@dimen/padding_large"
             android:text="@{item.category.name}"
+            app:drawableEndCompat="@drawable/ic_arrow_down"
             app:layout_constraintEnd_toStartOf="@id/label_add_project"
             app:layout_constraintStart_toEndOf="@id/color"
             app:layout_constraintTop_toTopOf="parent" />
@@ -54,7 +54,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_projects"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:visibility="gone"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"

@@ -35,7 +35,7 @@ class CategoryAdapter(
     inner class CategoryViewHolder(
         private val binding: ItemCategoryBinding,
         onCLick: ItemClickListener<CategoryProject>?,
-    ) : BaseAdapter.BaseViewHolder<CategoryProject>(binding.root, onCLick) {
+    ) : BaseViewHolder<CategoryProject>(binding.root, onCLick) {
 
         lateinit var adapter: ProjectAdapter
 

@@ -14,8 +14,8 @@ import com.nsp.timetracker.data.repository.ProjectRepository
 import com.nsp.timetracker.ui.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import java.util.*
 import javax.inject.Inject
@@ -39,17 +39,15 @@ class HomeViewModel @Inject constructor(
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
-            projectRep.projects.collect {
+            projectRep.projects.collectLatest {
                 projects.postValue(it)
-                delay(300)
                 refreshData()
             }
         }
 
         viewModelScope.launch(Dispatchers.IO) {
-            categoryRep.categories.collect {
+            categoryRep.categories.collectLatest {
                 categories.postValue(it)
-                delay(300)
                 refreshData()
             }
         }
